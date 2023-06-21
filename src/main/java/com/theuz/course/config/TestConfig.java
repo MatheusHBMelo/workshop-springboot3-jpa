@@ -12,8 +12,10 @@ import com.theuz.course.entities.User;
 import com.theuz.course.entities.enums.OrderStatus;
 import com.theuz.course.entities.Category;
 import com.theuz.course.entities.Order;
+import com.theuz.course.entities.OrderItem;
 import com.theuz.course.entities.Product;
 import com.theuz.course.repositories.CategoryRepository;
+import com.theuz.course.repositories.OrderItemRepository;
 import com.theuz.course.repositories.OrderRepository;
 import com.theuz.course.repositories.ProductRepository;
 import com.theuz.course.repositories.UserRepository;
@@ -33,6 +35,9 @@ public class TestConfig implements CommandLineRunner {
 	
 	@Autowired
 	private ProductRepository productRepository;
+	
+	@Autowired
+	private OrderItemRepository orderItemRepository;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -67,5 +72,12 @@ public class TestConfig implements CommandLineRunner {
 
 		userRepository.saveAll(Arrays.asList(u1, u2));
 		orderRepository.saveAll(Arrays.asList(o1, o2, o3));
+		
+		OrderItem oi1 = new OrderItem(p1, o1, 2, p1.getPrice());
+		OrderItem oi2 = new OrderItem(p3, o1, 1, p3.getPrice());
+		OrderItem oi3 = new OrderItem(p3, o2, 2, p3.getPrice());
+		OrderItem oi4 = new OrderItem(p5, o3, 2, p5.getPrice());
+		
+		orderItemRepository.saveAll(Arrays.asList(oi1, oi2, oi3, oi4));
 	}
 }
