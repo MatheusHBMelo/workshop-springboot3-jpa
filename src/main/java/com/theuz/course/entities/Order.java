@@ -44,8 +44,7 @@ public class Order implements Serializable {
 	@OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
 	private Payment payment;
 
-	public Order() {
-	}
+	public Order() {}
 
 	public Order(Integer id, Instant moment, OrderStatus orderStatus, User client) {
 		this.id = id;

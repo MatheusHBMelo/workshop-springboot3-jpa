@@ -15,7 +15,6 @@ import com.theuz.course.services.ProductService;
 @RestController
 @RequestMapping(value = "/products")
 public class ProductResource {
-	
 	@Autowired
 	private ProductService service;
 

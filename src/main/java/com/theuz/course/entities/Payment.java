@@ -30,8 +30,7 @@ public class Payment implements Serializable {
 	@MapsId
 	private Order order;
 
-	public Payment() {
-	}
+	public Payment() {}
 
 	public Payment(Integer id, Instant momento, Order order) {
 		this.id = id;
